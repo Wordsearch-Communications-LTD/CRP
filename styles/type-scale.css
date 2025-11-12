@@ -1,0 +1,53 @@
+/* -------------------------------------------------------
+   FONT WEIGHTS
+------------------------------------------------------- */
+:root {
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
+
+/* -------------------------------------------------------
+   FONT SIZES FROM FIGMA (FLUID UTOPIA CLAMPS)
+------------------------------------------------------- */
+
+/* ---------- CAPTIONS ---------- */
+.c-1 { font-size: clamp(0.5rem, 0.4375rem + 0.0521vw, 1rem); }      /* 8px */
+.c-2 { font-size: clamp(0.5625rem, 0.5625rem + 0.0521vw, 1.25rem); } /* 10px */
+.c-3 { font-size: clamp(0.625rem, 0.6875rem + 0.0521vw, 1.5rem); }   /* 12px */
+.c-4 { font-size: clamp(0.6875rem, 0.8125rem + 0.0521vw, 1.75rem); } /* 14px */
+
+/* ---------- BODY ---------- */
+.b-1 { font-size: clamp(0.5rem, 0.875rem + 0.1042vw, 2rem); }        /* base 16px */
+.b-2 { font-size: clamp(0.5625rem, 1rem + 0.1042vw, 2.25rem); }      /* base 18px */
+.b-3 { font-size: clamp(0.625rem, 1.125rem + 0.1042vw, 2.5rem); }    /* base 20px */
+.b-4 { font-size: clamp(0.6875rem, 1.25rem + 0.1042vw, 2.75rem); }   /* base 22px */
+.b-5 { font-size: clamp(0.75rem, 1.375rem + 0.1042vw, 3rem); }       /* base 24px */
+.b-6 { font-size: clamp(0.8125rem, 1.5rem + 0.1042vw, 3.25rem); }    /* base 26px */
+.b-7 { font-size: clamp(0.875rem, 1.625rem + 0.1042vw, 3.5rem); }    /* base 28px */
+
+/* ---------- SUBTITLES ---------- */
+.s-1 { font-size: clamp(0.9375rem, 1.625rem + 0.2083vw, 3.75rem); }  /* 30px */
+.s-2 { font-size: clamp(1rem, 1.75rem + 0.2083vw, 4rem); }           /* 32px */
+.s-3 { font-size: clamp(1.25rem, 2.25rem + 0.2083vw, 5rem); }        /* 40px */
+.s-4 { font-size: clamp(1.5rem, 2.75rem + 0.2083vw, 5.5rem); }       /* 48px */
+.s-5 { font-size: clamp(1.75rem, 3.25rem + 0.2083vw, 7rem); }        /* 56px */
+.s-6 { font-size: clamp(2rem, 3.75rem + 0.2083vw, 8rem); }           /* 64px */
+
+/* ---------- HEADINGS ---------- */
+.hd-1 { font-size: clamp(2.25rem, 4rem + 0.4167vw, 9rem); }          /* 72px */
+.hd-2 { font-size: clamp(2.5rem, 4.5rem + 0.4167vw, 10rem); }        /* 80px */
+.hd-3 { font-size: clamp(2.75rem, 5rem + 0.4167vw, 11rem); }         /* 88px */
+.hd-4 { font-size: clamp(3rem, 5.5rem + 0.4167vw, 12rem); }          /* 96px */
+.hd-5 { font-size: clamp(3.25rem, 6rem + 0.4167vw, 13rem); }         /* 104px */
+.hd-6 { font-size: clamp(3.5rem, 6.5rem + 0.4167vw, 14rem); }        /* 112px */
+
+/* ---------- DISPLAY ---------- */
+.d-1 { font-size: clamp(3.75rem, 7rem + 0.4167vw, 15rem); }          /* 120px */
+.d-2 { font-size: clamp(4rem, 7.5rem + 0.4167vw, 16rem); }           /* 128px */
+.d-3 { font-size: clamp(4.25rem, 8rem + 0.4167vw, 17rem); }          /* 136px */
+.d-4 { font-size: clamp(4.5rem, 8.5rem + 0.4167vw, 18rem); }         /* 144px */
+.d-5 { font-size: clamp(4.75rem, 9rem + 0.4167vw, 19rem); }          /* 152px */
+.d-6 { font-size: clamp(5rem, 9.5rem + 0.4167vw, 20rem); }           /* 160px */

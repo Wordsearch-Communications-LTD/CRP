@@ -1,0 +1,96 @@
+/* ---------------------------
+   GRADIENT & COLOR UTILITIES
+----------------------------*/
+
+.bg-grad-green-lite { background: var(--grad-green-lite); }
+.bg-grad-beige { background: var(--grad-beige); }
+.bg-grad-blue-1 { background: var(--grad-blue-1); }
+.bg-grad-blue-2 { background: var(--grad-blue-2); }
+.bg-grad-blue-3 { background: var(--grad-blue-3); }
+.bg-grad-dark-teal { background: var(--grad-dark-teal); }
+.bg-grad-pink-lite { background: var(--grad-pink-lite); }
+.bg-grad-red { background: var(--grad-red); }
+.bg-grad-blue-light { background: var(--grad-blue-light); }
+/* . */
+.bg-grad-orange-lite-linear { background:linear-gradient(90deg, #F3EFDF 0%, #FFD1B5 100%) }
+.bg-dark { background: var(--bg-dark); }
+.bg-stone { background: var(--bg-stone); }
+.bg-deep { background: var(--bg-deep); }
+
+/* Text gradients */
+.text-gradient {
+  /* Use with a background class on the same element */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.text-gradient-blue {
+  background: var(--grad-blue-3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-green {
+  background: linear-gradient(90deg, #49BE84 0%, #10331E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-grad-stone-lite {
+  background: linear-gradient(90deg, #B05A44 0%, #CBA271 100%);
+}
+
+/* ---------------------------
+   Layout utilities
+----------------------------*/
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: var(--space-12);
+  max-width: 1440px;
+}
+/* Container track width consistent with your site */
+.container-max {
+  max-width: min(1200px, 88vw);
+}
+
+/* === Banner Infographic typography (from Figma) === */
+/* Title: Archia Medium 18px, 125% line-height, 2% letter-spacing, weight 500 */
+.infographic-title {
+  font-family: "Archia", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+/* Body: Silka Regular 14px, 150% line-height, 4% letter-spacing, weight 400 */
+.infographic-body {
+  font-family: "Silka", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  /* Optional subtle max width to match the Figma text block width */
+  max-width: 28rem; /* ~448px; tweak if needed */
+}
+
+.section-padding {
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
+}
+
+.gap-responsive {
+  gap: var(--space-12);
+}
+
+.padding-responsive {
+  padding: var(--space-12);
+}
+
+.margin-responsive {
+  margin: var(--space-12);
+}

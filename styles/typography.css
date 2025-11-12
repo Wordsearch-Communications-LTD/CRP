@@ -1,0 +1,229 @@
+/* ===============================================
+   FONT FACE — ARCHIA + SILKA
+================================================ */
+@font-face {
+  font-family: "Archia";
+  src: url("/fonts/Archia-Regular.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Silka";
+  src: url("/fonts/Silka-Regular.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+/* ===============================================
+   FONT WEIGHT TOKENS
+================================================ */
+:root {
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
+
+/* ===============================================
+   FONT SIZE (FLUID TYPE UTOPIA SYSTEM FROM FIGMA)
+================================================ */
+
+/* CAPTIONS */
+.c-1 { font-size: clamp(0.5rem, 0.4375rem + 0.0521vw, 1rem); }
+.c-2 { font-size: clamp(0.5625rem, 0.5625rem + 0.0521vw, 1.25rem); }
+.c-3 { font-size: clamp(0.625rem, 0.6875rem + 0.0521vw, 1.5rem); }
+.c-4 { font-size: clamp(0.6875rem, 0.8125rem + 0.0521vw, 1.75rem); }
+
+/* BODY */
+.b-1 { font-size: clamp(0.5rem, 0.875rem + 0.1042vw, 2rem); }
+.b-2 { font-size: clamp(0.5625rem, 1rem + 0.1042vw, 2.25rem); }
+.b-3 { font-size: clamp(0.625rem, 1.125rem + 0.1042vw, 2.5rem); }
+.b-4 { font-size: clamp(0.6875rem, 1.25rem + 0.1042vw, 2.75rem); }
+.b-5 { font-size: clamp(0.75rem, 1.375rem + 0.1042vw, 3rem); }
+.b-6 { font-size: clamp(0.8125rem, 1.5rem + 0.1042vw, 3.25rem); }
+.b-7 { font-size: clamp(0.875rem, 1.625rem + 0.1042vw, 3.5rem); }
+
+/* SUBTITLES */
+.s-1 { font-size: clamp(0.9375rem, 1.625rem + 0.2083vw, 3.75rem); }
+.s-2 { font-size: clamp(1rem, 1.75rem + 0.2083vw, 4rem); }
+.s-3 { font-size: clamp(1.25rem, 2.25rem + 0.2083vw, 5rem); }
+.s-4 { font-size: clamp(1.5rem, 2.75rem + 0.2083vw, 5.5rem); }
+.s-5 { font-size: clamp(1.75rem, 3.25rem + 0.2083vw, 7rem); }
+.s-6 { font-size: clamp(2rem, 3.75rem + 0.2083vw, 8rem); }
+
+/* HEADINGS */
+.hd-1 { font-size: clamp(2.25rem, 4rem + 0.4167vw, 9rem); }
+.hd-2 { font-size: clamp(2.5rem, 4.5rem + 0.4167vw, 10rem); }
+.hd-3 { font-size: clamp(2.75rem, 5rem + 0.4167vw, 11rem); }
+.hd-4 { font-size: clamp(3rem, 5.5rem + 0.4167vw, 12rem); }
+.hd-5 { font-size: clamp(3.25rem, 6rem + 0.4167vw, 13rem); }
+.hd-6 { font-size: clamp(3.5rem, 6.5rem + 0.4167vw, 14rem); }
+
+/* DISPLAY */
+.d-1 { font-size: clamp(3.75rem, 7rem + 0.4167vw, 15rem); }
+.d-2 { font-size: clamp(4rem, 7.5rem + 0.4167vw, 16rem); }
+.d-3 { font-size: clamp(4.25rem, 8rem + 0.4167vw, 17rem); }
+.d-4 { font-size: clamp(4.5rem, 8.5rem + 0.4167vw, 18rem); }
+.d-5 { font-size: clamp(4.75rem, 9rem + 0.4167vw, 19rem); }
+.d-6 { font-size: clamp(5rem, 9.5rem + 0.4167vw, 20rem); }
+
+/* ===============================================
+   FONT WEIGHT HELPERS
+================================================ */
+.light    { font-weight: var(--fw-light); }
+.regular  { font-weight: var(--fw-regular); }
+.medium   { font-weight: var(--fw-medium); }
+.semibold { font-weight: var(--fw-semibold); }
+.bold     { font-weight: var(--fw-bold); }
+
+/* ===============================================
+   LETTER SPACING
+================================================ */
+.tighter  { letter-spacing: -0.02em; }
+.tight    { letter-spacing: -0.01em; }
+.normal   { letter-spacing: 0; }
+.wide     { letter-spacing: 0.02em; }
+.wider    { letter-spacing: 0.04em; }
+.widest   { letter-spacing: 0.08em; }
+.ultra    { letter-spacing: 0.16em; }
+
+/* ===============================================
+   LINE HEIGHTS
+================================================ */
+.lh-tighter { line-height: 1.0; }
+.lh-tight   { line-height: 1.1; }
+.lh-normal  { line-height: 1.25; }
+.lh-big     { line-height: 1.3; }
+.lh-bigger  { line-height: 1.4; }
+.lh-biggest { line-height: 1.5; }
+
+/* ===============================================
+   OFFICIAL TYPOGRAPHY CLASSES
+   (These are the classes you will use everywhere)
+================================================ */
+
+/* ---------------------------
+   HEADINGS
+----------------------------*/
+.text-heading-1 {
+  font-family: "Archia";
+  font-size: var(--font-heading-1, clamp(2.25rem, 4rem + 0.4167vw, 9rem));
+  font-weight: var(--fw-light);
+  line-height: 1.25;
+  letter-spacing: 0.14em;
+  color: var(--white, #ffffff);
+}
+
+.text-heading-2 {
+  font-family: "Archia";
+  font-size: var(--font-heading-2, clamp(2.5rem, 4.5rem + 0.4167vw, 10rem));
+  font-weight: var(--fw-light);
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  color: var(--dark-copy, #7A7A7A);
+}
+
+.text-heading-3 {
+  font-family: "Archia";
+  font-size: var(--font-heading-3, clamp(2.75rem, 5rem + 0.4167vw, 11rem));
+  font-weight: var(--fw-regular);
+  line-height: 1.25;
+  letter-spacing: 0.10em;
+  color: var(--white);
+}
+
+.text-heading-4 {
+  font-family: "Archia";
+  font-size: var(--font-heading-4, clamp(3rem, 5.5rem + 0.4167vw, 12rem));
+  font-weight: var(--fw-light);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  color: var(--dark-copy, #7A7A7A);
+}
+
+/* ---------------------------
+   BODY
+----------------------------*/
+.text-body-1 {
+  font-family: "Silka";
+  font-size: var(--font-body-1, 1rem);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--dark-copy, #7A7A7A);
+}
+
+.text-body-2 {
+  font-family: "Silka";
+  font-size: var(--font-body-2, 1.125rem);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.text-body-3 {
+  font-family: "Silka";
+  font-size: var(--font-body-3, 1.25rem);
+  font-weight: var(--fw-light);
+  line-height: 1.45;
+  letter-spacing: 0.045em;
+}
+
+.text-body-4 {
+  font-family: "Archia";
+  font-size: var(--font-body-4, 1.375rem);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+}
+ 
+/* === Nature hero specific text helpers (from Figma) === */
+.text-label {
+  font-family: "Archia", sans-serif;
+  font-weight: 500;           /* Medium */
+  text-transform: uppercase;
+  letter-spacing: 0.16em;     /* 16% */
+  line-height: 1.25;
+  color: var(--white);
+  font-size: clamp(0.875rem, 0.55rem + 1.0vw, 1.5rem); /* 14 → 24px */
+}
+
+.text-hero-title {
+  font-family: "Archia", sans-serif;
+  font-weight: 300;           /* Light */
+  letter-spacing: 0.02em;     /* 2% */
+  line-height: 1.25;
+  color: var(--white);
+  font-size: clamp(1.375rem, 0.75rem + 2.6vw, 4rem);   /* 22 → 64px */
+}
+
+.text-hero-subtitle {
+  font-family: "Archia", sans-serif;
+  font-weight: 300;           /* Light */
+  letter-spacing: 0.02em;     /* 2% */
+  line-height: 1.25;
+  font-size: clamp(1.375rem, 0.75rem + 2.6vw, 4rem);   /* 22 → 64px */
+  background: linear-gradient(90deg, #D94C6F 0%, #610F4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Archia Light, 2% tracking, 125% line-height; pair with .s-4 for 48px */
+.text-section-title {
+  font-family: "Archia";
+  font-weight: var(--fw-light);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  /* color: var(--dark-copy, #262626); */
+}
+
+/* Black CTA link underline per Figma */
+.link-black {
+  color: #000;
+  border-color: #000;
+}
+.link-black:hover {
+  opacity: 0.85;
+}
