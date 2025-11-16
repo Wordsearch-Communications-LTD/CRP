@@ -73,8 +73,8 @@ export default function SliderEvents({
                 border-b border-white
               "
             >
-              <div className="relative w-full overflow-hidden [aspect-ratio:3/2] rounded-[8px]">
-                <img src={card.media.src} className="absolute inset-0 w-full h-full object-cover"/>
+              <div className="relative w-full overflow-hidden [aspect-ratio:3/2] rounded-[8px] zoom-parent">
+                <img src={card.media.src} className="absolute inset-0 w-full h-full object-cover zoom-child"/>
               </div>
 
               <div className="pt-[24px] md:pt-[32px] flex flex-col">

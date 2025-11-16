@@ -8,11 +8,11 @@ export default function ImageWithRatio({
   imgClassName = "",
 }) {
   return (
-    <RatioBox ratio={ratio} className={className}>
+    <RatioBox ratio={ratio} className={`zoom-parent ${className}`.trim()}>
       <img
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover ${imgClassName}`}
+        className={`w-full h-full object-cover zoom-child ${imgClassName}`.trim()}
       />
     </RatioBox>
   );

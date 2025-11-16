@@ -4,6 +4,8 @@ import React from "react";
 import VimeoCover from "../global/VimeoCover";
 import RatioBox from "../global/RatioBox";
 
+import ArrowRightIcon from "../icons/ArrowRightIcon";
+
 export default function StatementHero({
   // Background
   bg = "bg-blue-mid",               // can be bg-teal-mid, bg-grad-blue-light, bg-img-*, etc.
@@ -42,15 +44,17 @@ export default function StatementHero({
   };
 
   return (
-    <section className={`relative w-full overflow-hidden ${bg}`}>
+    <section className={`relative w-full overflow-hidden group ${bg}`}>
       {/* ===============================
-          ✅ BACKGROUND LAYERS
+            BACKGROUND LAYERS
       ================================== */}
       {backgroundImage && !vimeoId && (
-        <img
-          src={backgroundImage}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <div className="absolute inset-0 zoom-parent">
+          <img
+            src={backgroundImage}
+            className="w-full h-full object-cover zoom-child"
+          />
+        </div>
       )}
 
       {vimeoId && (
@@ -67,7 +71,7 @@ export default function StatementHero({
       )}
 
       {/* ===============================
-          ✅ CONTENT WRAPPER
+            CONTENT WRAPPER
       ================================== */}
       <div
         className="
@@ -112,6 +116,7 @@ export default function StatementHero({
             href={cta.href}
             className="
               mt-[28px]
+              inline-flex items-center gap-2
               text-body-4
               uppercase
               tracking-[0.16em]
@@ -120,7 +125,8 @@ export default function StatementHero({
               pb-[6px]
             "
           >
-            {cta.label} →
+            <span>{cta.label}</span>
+            <ArrowRightIcon className="h-4 w-4" />
           </a>
         )}
       </div>

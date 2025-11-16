@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 
+import ArrowRightIcon from "../icons/ArrowRightIcon";
+import ScrollReveal from "../global/ScrollReveal";
+
 export default function TwoColumnContent({
   bgClassName = "bg-grad-stone-lite",
 
@@ -21,33 +24,36 @@ export default function TwoColumnContent({
   return (
     <section className={`w-full ${bgClassName}`}>
       <div className="section-padding">
-        <div className="px-[10vw] md:px-[8vw] lg:pl-[5vw] lg:pr-[0vw]">
+        <div className="px-[20px] md:px-[8vw] lg:pl-[5vw] lg:pr-[0vw]">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[64px] items-start">
 
             {/* ======================================================
-                ✅ LEFT COLUMN — EXACT SAME AS StandardTextBlock
+                  LEFT COLUMN — EXACT SAME AS StandardTextBlock
                ====================================================== */}
             <div className="max-w-[864px]">
 
               {/* === Heading === */}
-              <h2 className="text-section-title s-4 wide lh-big text-[#805A44]">
-                {headingLine1}
-                <br />
-                <span
-                  className="
-                    s-4 wide lh-big font-light
-                    bg-gradient-to-r from-[#805A44] to-[#CBA271]
-                    bg-clip-text text-transparent
-                    lg:pl-[7vw]
-                  "
-                >
-                  {headingLine2}
-                </span>
-              </h2>
+              <ScrollReveal direction="left">
+                <h2 className="text-section-title s-4 wide lh-big text-[#805A44]">
+                  {headingLine1}
+                  <br />
+                  <span
+                    className="
+                      s-4 wide lh-big font-light
+                      bg-gradient-to-r from-[#805A44] to-[#CBA271]
+                      bg-clip-text text-transparent
+                      lg:pl-[7vw]
+                    "
+                  >
+                    {headingLine2}
+                  </span>
+                </h2>
+              </ScrollReveal>
 
               {/* === Body === */}
-              <div
+              <ScrollReveal
+                direction="left"
                 className="
                   mt-[24px]
                   max-w-[840px]
@@ -56,13 +62,14 @@ export default function TwoColumnContent({
                   lg:pl-[7vw]
                 "
               >
-                <p className="text-body-1">
+                <p className="text-body-2 text-black">
                   {body}
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* === CTA Buttons === */}
-              <div
+              <ScrollReveal
+                direction="left"
                 className="
                   mt-[32px]
                   flex flex-wrap items-center 
@@ -75,6 +82,7 @@ export default function TwoColumnContent({
                   <Link
                     href={cta1.href}
                     className="
+                      inline-flex items-center gap-2
                       text-body-4 
                       pb-[2px]
                       border-b-2 border-black
@@ -82,7 +90,8 @@ export default function TwoColumnContent({
                       link-black
                     "
                   >
-                    {cta1.label} →
+                    <span>{cta1.label}</span>
+                    <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 )}
 
@@ -90,6 +99,7 @@ export default function TwoColumnContent({
                   <Link
                     href={cta2.href}
                     className="
+                      inline-flex items-center gap-2
                       text-body-4 
                       pb-[2px]
                       border-b-2 border-black
@@ -97,14 +107,15 @@ export default function TwoColumnContent({
                       link-black
                     "
                   >
-                    {cta2.label} →
+                    <span>{cta2.label}</span>
+                    <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 )}
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* ======================================================
-                ✅ RIGHT COLUMN — Dynamic (text / image / video)
+                  RIGHT COLUMN — Dynamic (text / image / video)
                ====================================================== */}
             <div className="w-full flex ">
 
@@ -113,18 +124,18 @@ export default function TwoColumnContent({
 
               {/* TEXT BLOCK */}
               {rightType === "text" && (
-                <div className="max-w-[600px]">
-                  <p className="text-body-1">{rightText}</p>
-                </div>
+                <ScrollReveal direction="right" className="max-w-[600px]">
+                  <p className="text-body-2 text-black">{rightText}</p>
+                </ScrollReveal>
               )}
 
               {/* IMAGE — 3:2 ratio */}
               {rightType === "image" && rightImage && (
-                <div className="w-full   aspect-[3/2] rounded-[12px] overflow-hidden">
+                <div className="w-full aspect-[3/2] rounded-[12px] overflow-hidden zoom-parent">
                   <img
                     src={rightImage}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover zoom-child"
                   />
                 </div>
               )}

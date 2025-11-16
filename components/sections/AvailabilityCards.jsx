@@ -57,12 +57,12 @@ export default function AvailabilityCards({
           {cards.map((c) => (
             <article key={c.id} className="h-full flex flex-col">
               {/* Image 3:2 */}
-              <div className="relative w-full aspect-[3/2] overflow-hidden">
+              <div className="relative w-full aspect-[3/2] overflow-hidden zoom-parent">
                 <Image
                   src={c.image.src}
                   alt={c.image.alt ?? c.title}
                   fill
-                  className="object-cover"
+                  className="object-cover zoom-child"
                   sizes="(min-width: 1024px) 720px, 100vw"
                   priority={false}
                 />

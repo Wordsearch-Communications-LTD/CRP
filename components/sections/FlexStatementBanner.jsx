@@ -1,8 +1,10 @@
 "use client";
 
+import ScrollReveal from "../global/ScrollReveal";
+
 export default function FlexStatementBanner({
-  bg = "bg-teal-mid",           // ✅ solid or gradient background class
-  textColor1 = "text-grad-red", // ✅ gradient or solid text color classes
+  bg = "bg-teal-mid",           //   solid or gradient background class
+  textColor1 = "text-grad-red", //   gradient or solid text color classes
   textColor2 = "text-grad-red",
   line1 = "Fresh air. Green spaces.",
   line2 = "",
@@ -33,45 +35,51 @@ export default function FlexStatementBanner({
           w-full 
           flex flex-col lg:items-center lg:justify-center 
           text-start
-          py-[120px] 
-          px-[10vw]
+          md:py-[120px] 
+          py-[64px] 
+          md:px-[10vw]
+          px-[5vw]
         "
       >
         {/* ================================
-            ✅ LINE 1 — Archia / 64px / 125%
+              LINE 1 — Archia / 64px / 125%
         ================================= */}
-        <h2
-          className={`
-         s-6 light lh-normal wide 
-            leading-[1.25] 
-            tracking-[0.02em]
-            font-light
-            ${enhanceTextClass(textColor1)}
-            max-w-[900px]
-            lg:mr-[12rem]
-          `}
-        >
-          {line1}
-        </h2>
+        <ScrollReveal direction="left">
+          <h2
+            className={`
+           s-6 light lh-normal wide 
+              leading-[1.25] 
+              tracking-[0.02em]
+              font-light
+              ${enhanceTextClass(textColor1)}
+              max-w-[900px]
+              lg:mr-[12rem]
+            `}
+          >
+            {line1}
+          </h2>
+        </ScrollReveal>
 
         {/* ================================
-            ✅ LINE 2 — Same style / spacing
+              LINE 2 — Same style / spacing
         ================================= */}
-        <h2
-          className={`
-              s-6 light lh-normal wide
+        <ScrollReveal direction="right">
+          <h2
+            className={`
+                s-6 light lh-normal wide
 
-            leading-[1.25] 
-            tracking-[0.02em]
-            font-light
-            mt-[8px]
-            ${enhanceTextClass(textColor2)}
-            max-w-[900px]
-           lg:ml-[28rem]
-          `}
-        >
-          {line2}
-        </h2>
+              leading-[1.25] 
+              tracking-[0.02em]
+              font-light
+              mt-[8px]
+              ${enhanceTextClass(textColor2)}
+              max-w-[900px]
+             lg:ml-[28rem]
+            `}
+          >
+            {line2}
+          </h2>
+        </ScrollReveal>
       </div>
     </section>
   );

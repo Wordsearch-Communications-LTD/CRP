@@ -35,6 +35,20 @@
 .s-4 { font-size: clamp(1.5rem, 2.75rem + 0.2083vw, 5.5rem); }       /* 48px */
 .s-5 { font-size: clamp(1.75rem, 3.25rem + 0.2083vw, 7rem); }        /* 56px */
 .s-6 { font-size: clamp(2rem, 3.75rem + 0.2083vw, 8rem); }           /* 64px */
+.s-6 { font-size: 4rem; } /* 64px desktop */
+
+@media (max-width: 1024px) {
+  .s-6 { font-size: 2rem; }
+}
+
+
+@media (max-width: 1024px) {
+  .s-4 { font-size: 1.5rem; } /* 24px */
+}
+
+@media (max-width: 640px) {
+  .s-4 { font-size: 1.375rem; } /* 22px */
+}
 
 /* ---------- HEADINGS ---------- */
 .hd-1 { font-size: clamp(2.25rem, 4rem + 0.4167vw, 9rem); }          /* 72px */

@@ -23,20 +23,20 @@ export default function SectionWhyChoose({
   return (
     <section className="relative w-full overflow-hidden">
       
-      {/* ✅ MOBILE 1:1 */}
+      {/*   MOBILE 1:1 */}
       <div className="block sm:hidden relative">
         <RatioBox ratio="1:1">
           <VideoElement vimeoUrl={vimeoUrl} localIframe={localIframe} />
         </RatioBox>
 
-        <div className="absolute top-[2.5rem] left-1/2 -translate-x-1/2 pointer-events-none">
+        <div className="absolute top-[2.5rem] left-1/2 -translate-x-1/2 pointer-events-none w-[80%] md:w-[60%]">
           <h2 className="text-center s-2 medium lh-normal wide text-[#7A7A7A]">
             Why choose Cambridge Research Park?
           </h2>
         </div>
       </div>
 
-      {/* ✅ TABLET & DESKTOP 5:2 */}
+      {/*   TABLET & DESKTOP 5:2 */}
       <div className="hidden sm:block relative">
         <RatioBox ratio="5:2">
           <VideoElement vimeoUrl={vimeoUrl} localIframe={localIframe} />

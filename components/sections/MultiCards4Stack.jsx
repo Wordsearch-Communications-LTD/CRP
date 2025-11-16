@@ -99,29 +99,29 @@ export default function MultiCards4Stack({
           <div key={i} className="flex flex-col">
 
             {/* ===========================
-                ✅ MEDIA WRAPPER
+                  MEDIA WRAPPER
                 =========================== */}
-            <div className="relative w-full aspect-[4/5] bg-[#64B3FC] overflow-hidden rounded-[4px]">
+            <div className="relative w-full aspect-[4/5] bg-[#64B3FC] overflow-hidden rounded-[4px] zoom-parent">
 
-              {/* ✅ PNG/JPEG */}
+              {/*   PNG/JPEG */}
               {card.mediaType === "image" && card.image && (
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover zoom-child"
                 />
               )}
 
-              {/* ✅ SVG */}
+              {/*   SVG */}
               {card.mediaType === "svg" && card.svg && (
                 <img
                   src={card.svg}
                   alt={card.title}
-                  className="absolute inset-0 w-full h-full object-contain p-[32px]"
+                  className="absolute inset-0 w-full h-full object-contain p-[32px] zoom-child"
                 />
               )}
 
-              {/* ✅ Lottie */}
+              {/*   Lottie */}
               {card.mediaType === "lottie" && card.lottie && (
                 <Player
                   autoplay
@@ -132,7 +132,7 @@ export default function MultiCards4Stack({
               )}
 
               {/* ===========================
-                  ✅ OVERLAY HEADING
+                    OVERLAY HEADING
                   =========================== */}
               <div className="absolute bottom-[16px] left-[16px]">
                 <h3
@@ -157,7 +157,7 @@ export default function MultiCards4Stack({
             </div>
 
             {/* ===========================
-                ✅ DESCRIPTION
+                  DESCRIPTION
                 =========================== */}
             <p
               className={`

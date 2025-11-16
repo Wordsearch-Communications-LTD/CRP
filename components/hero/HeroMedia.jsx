@@ -15,7 +15,7 @@
 //   return (
 //     <section className="w-full relative overflow-hidden">
 
-//       {/* ✅ MOBILE — 4:5 ratio (0–767px) */}
+//       {/*   MOBILE — 4:5 ratio (0–767px) */}
 //       <div className="block md:hidden">
 //         <RatioBox ratio="4:5">
 //           {vimeoId ? (
@@ -30,7 +30,7 @@
 //         </RatioBox>
 //       </div>
 
-//       {/* ✅ TABLET — 3:2 ratio (768–1023px) */}
+//       {/*   TABLET — 3:2 ratio (768–1023px) */}
 //       <div className="hidden md:block lg:hidden">
 //         <RatioBox ratio="3:2">
 //           {vimeoId ? (
@@ -45,7 +45,7 @@
 //         </RatioBox>
 //       </div>
 
-//       {/* ✅ DESKTOP — 16:9 ratio (1024px+) */}
+//       {/*   DESKTOP — 16:9 ratio (1024px+) */}
 //       <div className="hidden lg:block">
 //         <RatioBox ratio="16:9">
 //           {vimeoId ? (
@@ -86,7 +86,7 @@
 //   return (
 //     <section className="w-full relative overflow-hidden">
 
-//       {/* ✅ MOBILE (0–639px) */}
+//       {/*   MOBILE (0–639px) */}
 //       <div className="block sm:hidden">
 //         <RatioBox ratio="4:5">
 //           {vimeoId ? (
@@ -102,7 +102,7 @@
 //         </RatioBox>
 //       </div>
 
-//       {/* ✅ TABLET (640–1023px) */}
+//       {/*   TABLET (640–1023px) */}
 //       <div className="hidden sm:block md:hidden">
 //         <RatioBox ratio="3:2">
 //           {vimeoId ? (
@@ -117,7 +117,7 @@
 //         </RatioBox>
 //       </div>
 
-//       {/* ✅ DESKTOP (1024px+) */}
+//       {/*   DESKTOP (1024px+) */}
 //       <div className="hidden md:block">
 //         <RatioBox ratio="16:9">
 //           {vimeoId ? (
@@ -132,7 +132,7 @@
 //         </RatioBox>
 //       </div>
 
-//       {/* ✅ TEXT */}
+//       {/*   TEXT */}
 //       <div className="absolute inset-0 flex items-end justify-center pb-[2rem] pointer-events-none">
 //         <p className="text-white text-center s-2 lighter lh-big tracking-wide max-w-[80%]">
 //           {text}
@@ -158,40 +158,46 @@ export default function HeroMedia({ vimeoId = null, imageUrl = null, text = "" }
   return (
     <section className="relative w-full overflow-hidden">
 
-      {/* ✅ MOBILE — 4:5 */}
+      {/*   MOBILE — 4:5 */}
       <div className="block sm:hidden relative">
         <RatioBox ratio="4:5">
           {vimeoId ? (
             <VimeoCover url={vimeoUrl} />
           ) : (
-            <img src={imageUrl} className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 zoom-parent">
+              <img src={imageUrl} className="h-full w-full object-cover zoom-child" />
+            </div>
           )}
         </RatioBox>
       </div>
 
-      {/* ✅ TABLET — 3:2 */}
+      {/*   TABLET — 3:2 */}
       <div className="hidden sm:block md:hidden relative">
         <RatioBox ratio="3:2">
           {vimeoId ? (
             <VimeoCover url={vimeoUrl} />
           ) : (
-            <img src={imageUrl} className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 zoom-parent">
+              <img src={imageUrl} className="h-full w-full object-cover zoom-child" />
+            </div>
           )}
         </RatioBox>
       </div>
 
-      {/* ✅ DESKTOP — 16:9 */}
+      {/*   DESKTOP — 16:9 */}
       <div className="hidden md:block relative">
         <RatioBox ratio="16:9">
           {vimeoId ? (
             <VimeoCover url={vimeoUrl} />
           ) : (
-            <img src={imageUrl} className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 zoom-parent">
+              <img src={imageUrl} className="h-full w-full object-cover zoom-child" />
+            </div>
           )}
         </RatioBox>
       </div>
 
-      {/* ✅ TEXT OVERLAY (same for all breakpoints) */}
+      {/*   TEXT OVERLAY (same for all breakpoints) */}
       <div className="absolute inset-0 flex items-end justify-center pb-[2rem] pointer-events-none">
         <p className="text-white text-center s-2 lighter lh-big tracking-wide max-w-[80%] px-4">
           {text}

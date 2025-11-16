@@ -1,7 +1,8 @@
 // components/AgentContacts.jsx
+"use client";
 import Image from "next/image";
 
-/* --------- theme hooks (map to your token classes) --------- */
+/* -------- gradient + text maps (tie these to your tokens) -------- */
 const BG = {
   "grad-blue-lite": "bg-grad-blue-lite-linear",
   "grad-blue-3": "bg-grad-blue-3",
@@ -14,98 +15,179 @@ const TEXT = { dark: "text-[var(--dark-copy)]", light: "text-white" };
 
 /**
  * Props
- * - bg:       one of keys in BG (default "grad-blue-lite")
- * - text:     "dark" | "light"
- * - columns:  [
- *     {
- *       eyebrow: "A development by",
- *       logo: { src, alt, width?, height? },
- *       agents: [
- *         { name, role?, phone?, email? }  // role is optional subtitle
- *       ]
- *     }, ...
- *   ]
+ * - bg:           one of BG keys (fallback "grad-blue-lite")
+ * - text:         "dark" | "light"
+ * - bgImage:      optional url for section background image
+ * - overlayBg:    optional gradient key from BG to overlay on top of bgImage
+ * - developer:    { eyebrow, logo:{src,alt,width?,height?} }
+ * - headlineRight: string  (the “Get in touch…” line)
+ * - agencies:     [{ logo:{...}, people:[{name,role?,phone?,email?}, ...] }, ...]  // ideally 3 items
  */
 export default function AgentContacts({
   bg = "grad-blue-lite",
   text = "dark",
-  columns = [],
+  bgImage,                // e.g. "/images/contacts-bg.jpg"
+  overlayBg,              // e.g. "grad-blue-lite" to tint the photo
+  developer = {
+    eyebrow: "A development by",
+    logo: { src: "/logos/royal-london.svg", alt: "Royal London" },
+  },
+  headlineRight = "Get in touch to find your campus space",
+  agencies = [],
 }) {
   return (
-    <section className={`${BG[bg]} ${TEXT[text]} w-full`}>
+    <section className={`relative ${TEXT[text]} ${!bgImage ? BG[bg] : ""} w-full`}>
+      {/* Full-bleed background image (optional) */}
+      {bgImage && (
+        <div className="absolute inset-0 -z-10 zoom-parent">
+          <Image
+            src={bgImage}
+            alt=""
+            fill
+            priority={false}
+            className="object-cover object-center zoom-child"
+          />
+        </div>
+      )}
+      {/* Optional gradient overlay above the image */}
+      {bgImage && overlayBg && (
+        <div className={`absolute inset-0 -z-10 pointer-events-none ${BG[overlayBg]} opacity-90`} />
+      )}
+
       <div className="
+        relative
         mx-auto max-w-[1600px]
         px-[16px] sm:px-[32px] md:px-[64px] lg:px-[96px] xl:px-[112px]
         py-[64px] md:py-[80px] lg:py-[96px]
       ">
-        {/* 1-column mobile → 3 columns desktop, 32px figma gap */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[24px] md:gap-[32px] items-start">
-          {columns.map((col, i) => (
-            <div key={i} className="w-full">
-              {/* Eyebrow (contacts-headline: Archia Regular, 20 / 10 / 20, 125%, 2%) */}
-              {col.eyebrow && (
-                <p className="
-                  text-section-title regular wide
-                  text-left text-[#162536]
-                  text-[20px] md:text-[10px] lg:text-[20px]
-                ">
-                  {col.eyebrow}
-                </p>
-              )}
+        {/* ======================= TOP STRIP ======================= */}
+        {/* Desktop/tablet: 1/3 split exactly like Figma */}
+        <div className="hidden md:grid grid-cols-4 items-end mb-[32px]">
+          <div className="col-span-1">
+            <p
+              className="
+                font-archia regular
+                text-[20px] leading-[1.25] tracking-[0.02em]
+              "
+              style={{ color: "var(--2---Light-blue, #4A5EC2)" }}
+            >
+              {developer?.eyebrow}
+            </p>
+          </div>
+          <div className="col-span-3">
+            <p
+              className="
+                font-archia regular
+                text-[20px] leading-[1.25] tracking-[0.02em]
+              "
+              style={{ color: "var(--2---Light-blue, #4A5EC2)" }}
+            >
+              {headlineRight}
+            </p>
+          </div>
+        </div>
 
-              {/* Logo */}
-              {col.logo && (
-                <div className="mt-[12px] mb-[16px]">
+        {/* Mobile: eyebrow → developer logo → headline (stacked, not parallel) */}
+        <div className="md:hidden mb-[32px]">
+          <p
+            className="
+              font-archia regular
+              text-[20px] leading-[1.25] tracking-[0.02em] mb-[12px]
+            "
+            style={{ color: "var(--2---Light-blue, #4A5EC2)" }}
+          >
+            {developer?.eyebrow}
+          </p>
+
+          {developer?.logo && (
+            <div className="mb-[16px]">
+              <Image
+                src={developer.logo.src}
+                alt={developer.logo.alt || ""}
+                width={developer.logo.width || 240}
+                height={developer.logo.height || 70}
+                className="h-auto w-auto max-h-[56px] object-contain"
+              />
+            </div>
+          )}
+
+          <p
+            className="
+              font-archia regular
+              text-[20px] leading-[1.25] tracking-[0.02em]
+            "
+            style={{ color: "var(--2---Light-blue, #4A5EC2)" }}
+          >
+            {headlineRight}
+          </p>
+        </div>
+    
+        {/* 4 columns on large screens: col-1 = developer logo, cols 2–4 = agencies */}
+        <div className="grid grid-cols-1  md:grid-cols-4 gap-[24px] md:gap-[32px] items-start">
+          {/* Developer column (hidden on mobile because we already show it above) */}
+          <div className="hidden md:block">
+            {developer?.logo && (
+              <div className="mb-[32px]">
+                <Image
+                  src={developer.logo.src}
+                  alt={developer.logo.alt || ""}
+                  width={developer.logo.width || 240}
+                  height={developer.logo.height || 70}
+                  className="h-auto w-auto max-h-[56px] object-contain"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Agency columns (expect 3) */}
+          {agencies.map((agency, idx) => (
+            <div key={idx} className="w-full">
+              {agency.logo && (
+                <div className="mb-[16px]">
                   <Image
-                    src={col.logo.src}
-                    alt={col.logo.alt || ""}
-                    width={col.logo.width || 240}
-                    height={col.logo.height || 70}
+                    src={agency.logo.src}
+                    alt={agency.logo.alt || ""}
+                    width={agency.logo.width || 160}
+                    height={agency.logo.height || 50}
                     className="h-auto w-auto max-h-[56px] object-contain"
                   />
                 </div>
               )}
 
-              {/* Agents list (gap 32 per Figma on desktop) */}
-              <div className="flex flex-col gap-[16px] md:gap-[24px] lg:gap-[32px]">
-                {col.agents?.map((a, idx) => (
-                  <div key={idx} className="border-t first:border-t-0 border-black/10 pt-[16px] first:pt-0">
-                    {/* agent-names: Archia Medium (16 mobile / 10 tablet / 20 desktop), LH 24 */}
-                    <h4 className="
-                      font-archia medium text-[#162536] wide
-                      text-[16px] md:text-[10px] lg:text-[20px]
-                      leading-[24px]
-                    ">
-                      {a.name}
+              <div className="flex flex-col gap-[24px] md:gap-[28px]">
+                {agency.people?.map((p, i) => (
+                  <div
+                    key={i}
+                    className="border-t first:border-t-0 border-black/10 pt-[16px] first:pt-0"
+                  >
+                    {/* agent-names: Archia Medium (16xs / 20lg), LH 24 */}
+                    <h4 className="font-archia medium text-[#162536] text-[16px] lg:text-[20px] leading-[24px]">
+                      {p.name}
                     </h4>
 
-                    {/* Optional role (Silka, 16→14, 150%, 4%) */}
-                    {a.role && (
-                      <p className="
-                        text-body-1 regular wider text-[#162536]
-                        text-[12px] md:text-[12px] lg:text-[14px]
-                        lh-biggest mt-[2px]
-                      ">
-                        {a.role}
+                    {/* role: Silka Regular (14/16), 150%, 4% */}
+                    {p.role && (
+                      <p className="font-silka regular tracking-[0.04em] leading-[1.5] text-[14px] lg:text-[16px] text-[#162536] mt-[2px]">
+                        {p.role}
                       </p>
                     )}
 
-                    {/* agent-details-clickable: Silka Regular (14 mobile/tablet, 16 desktop), 150%, 4% */}
+                    {/* details: Silka Regular (14/16), 150%, 4% */}
                     <div className="mt-[6px] flex flex-col gap-[4px]">
-                      {a.phone && (
+                      {p.phone && (
                         <a
-                          href={`tel:${a.phone.replace(/\s+/g, "")}`}
-                          className="text-body-1 wider lh-biggest text-[#162536] text-[14px] lg:text-[16px]"
+                          href={`tel:${p.phone.replace(/\s+/g, "")}`}
+                          className="font-silka regular tracking-[0.04em] leading-[1.5] text-[14px] lg:text-[16px] text-[#162536]"
                         >
-                          {a.phone}
+                          {p.phone}
                         </a>
                       )}
-                      {a.email && (
+                      {p.email && (
                         <a
-                          href={`mailto:${a.email}`}
-                          className="text-body-1 wider lh-biggest text-[#162536] text-[14px] lg:text-[16px] break-all"
+                          href={`mailto:${p.email}`}
+                          className="font-silka regular tracking-[0.04em] leading-[1.5] text-[14px] lg:text-[16px] text-[#162536] break-all"
                         >
-                          {a.email}
+                          {p.email}
                         </a>
                       )}
                     </div>
@@ -115,6 +197,7 @@ export default function AgentContacts({
             </div>
           ))}
         </div>
+        {/* ==================== END MAIN GRID ===================== */}
       </div>
     </section>
   );

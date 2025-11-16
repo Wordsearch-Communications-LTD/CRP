@@ -26,7 +26,7 @@
   --font-heading-4: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);     /* 22px → 32px */
 
   --font-body-1: clamp(1.2rem, 1.1rem + 1vw, 1.5rem); /* 18px → 24px */
-  --font-body-2: clamp(1.125rem, 1.05rem + 0.6vw, 1.25rem); /* 17px → 20px */
+  --font-body-2: clamp(1rem, 1.05rem + 0.6vw, 1rem); /* 17px → 20px */
   --font-body-3: clamp(1rem, 0.9rem + 0.4vw, 1.125rem); /* 16px → 18px */
   --font-body-4: clamp(0.9rem, 0.85rem + 0.2vw, 1rem); /* 14px → 16px */
 
@@ -62,9 +62,40 @@
   --space-4: clamp(0.5rem, 0.4rem + 0.3vw, 1rem);
   --space-6: clamp(0.75rem, 0.5rem + 0.5vw, 1.5rem);
   --space-8: clamp(1rem, 0.8rem + 0.6vw, 2rem);
-  --space-12: clamp(1.5rem, 1.2rem + 1vw, 3rem);
+  --space-12: clamp(1rem, 0.2rem + 1vw, 3rem);
   --space-20: clamp(2rem, 1.5rem + 1.5vw, 5rem);
   --space-32: clamp(3rem, 2.2rem + 2vw, 8rem);
   --space-48: clamp(4rem, 3rem + 3vw, 12rem);
   --space-80: clamp(5rem, 4rem + 4vw, 20rem); /* section padding */
+}
+
+:root {
+  /* -- Base breakpoints (from your Figma 960/1920 tables) */
+  --min-screen: 960;
+  --max-screen: 1920;
+
+  /* === Horizontal container paddings === */
+  --space-xs: clamp(8px, 2px + 0.5vw, 16px);
+  --space-sm: clamp(16px, 4px + 0.8vw, 32px);
+  --space-md: clamp(24px, 6px + 1.2vw, 48px);
+  --space-lg: clamp(32px, 10px + 1.6vw, 64px);
+  --space-xl: clamp(48px, 14px + 2vw, 96px);
+
+  /* === Vertical rhythm / section padding === */
+  --section-space-sm: clamp(32px, 8px + 2vw, 64px);
+  --section-space-md: clamp(48px, 10px + 2.5vw, 96px);
+  --section-space-lg: clamp(64px, 16px + 3vw, 128px);
+
+  /* === Gaps === */
+  --gap-xs: clamp(8px, 2px + 0.4vw, 16px);
+  --gap-sm: clamp(12px, 4px + 0.6vw, 24px);
+  --gap-md: clamp(16px, 5px + 1vw, 32px);
+  --gap-lg: clamp(24px, 8px + 1.5vw, 48px);
+  --gap-xl: clamp(32px, 12px + 2vw, 64px);
+
+  /* === Container widths === */
+  --container-sm: clamp(640px, 70vw, 960px);
+  --container-md: clamp(960px, 80vw, 1280px);
+  --container-lg: clamp(1200px, 85vw, 1600px);
+  --container-xl: clamp(1400px, 90vw, 1920px);
 }

@@ -29,46 +29,7 @@
 /* ===============================================
    FONT SIZE (FLUID TYPE UTOPIA SYSTEM FROM FIGMA)
 ================================================ */
-
-/* CAPTIONS */
-.c-1 { font-size: clamp(0.5rem, 0.4375rem + 0.0521vw, 1rem); }
-.c-2 { font-size: clamp(0.5625rem, 0.5625rem + 0.0521vw, 1.25rem); }
-.c-3 { font-size: clamp(0.625rem, 0.6875rem + 0.0521vw, 1.5rem); }
-.c-4 { font-size: clamp(0.6875rem, 0.8125rem + 0.0521vw, 1.75rem); }
-
-/* BODY */
-.b-1 { font-size: clamp(0.5rem, 0.875rem + 0.1042vw, 2rem); }
-.b-2 { font-size: clamp(0.5625rem, 1rem + 0.1042vw, 2.25rem); }
-.b-3 { font-size: clamp(0.625rem, 1.125rem + 0.1042vw, 2.5rem); }
-.b-4 { font-size: clamp(0.6875rem, 1.25rem + 0.1042vw, 2.75rem); }
-.b-5 { font-size: clamp(0.75rem, 1.375rem + 0.1042vw, 3rem); }
-.b-6 { font-size: clamp(0.8125rem, 1.5rem + 0.1042vw, 3.25rem); }
-.b-7 { font-size: clamp(0.875rem, 1.625rem + 0.1042vw, 3.5rem); }
-
-/* SUBTITLES */
-.s-1 { font-size: clamp(0.9375rem, 1.625rem + 0.2083vw, 3.75rem); }
-.s-2 { font-size: clamp(1rem, 1.75rem + 0.2083vw, 4rem); }
-.s-3 { font-size: clamp(1.25rem, 2.25rem + 0.2083vw, 5rem); }
-.s-4 { font-size: clamp(1.5rem, 2.75rem + 0.2083vw, 5.5rem); }
-.s-5 { font-size: clamp(1.75rem, 3.25rem + 0.2083vw, 7rem); }
-.s-6 { font-size: clamp(2rem, 3.75rem + 0.2083vw, 8rem); }
-
-/* HEADINGS */
-.hd-1 { font-size: clamp(2.25rem, 4rem + 0.4167vw, 9rem); }
-.hd-2 { font-size: clamp(2.5rem, 4.5rem + 0.4167vw, 10rem); }
-.hd-3 { font-size: clamp(2.75rem, 5rem + 0.4167vw, 11rem); }
-.hd-4 { font-size: clamp(3rem, 5.5rem + 0.4167vw, 12rem); }
-.hd-5 { font-size: clamp(3.25rem, 6rem + 0.4167vw, 13rem); }
-.hd-6 { font-size: clamp(3.5rem, 6.5rem + 0.4167vw, 14rem); }
-
-/* DISPLAY */
-.d-1 { font-size: clamp(3.75rem, 7rem + 0.4167vw, 15rem); }
-.d-2 { font-size: clamp(4rem, 7.5rem + 0.4167vw, 16rem); }
-.d-3 { font-size: clamp(4.25rem, 8rem + 0.4167vw, 17rem); }
-.d-4 { font-size: clamp(4.5rem, 8.5rem + 0.4167vw, 18rem); }
-.d-5 { font-size: clamp(4.75rem, 9rem + 0.4167vw, 19rem); }
-.d-6 { font-size: clamp(5rem, 9.5rem + 0.4167vw, 20rem); }
-
+ 
 /* ===============================================
    FONT WEIGHT HELPERS
 ================================================ */
@@ -148,7 +109,7 @@
 ----------------------------*/
 .text-body-1 {
   font-family: "Silka";
-  font-size: var(--font-body-1, 1rem);
+  font-size: var(--font-body-1);
   font-weight: var(--fw-regular);
   line-height: 1.4;
   letter-spacing: 0.05em;
@@ -190,7 +151,34 @@
   color: var(--white);
   font-size: clamp(0.875rem, 0.55rem + 1.0vw, 1.5rem); /* 14 → 24px */
 }
-
+.archia-light {
+  font-family: "Archia", sans-serif;
+  font-weight: 300;           /* Light */
+}
+.archia-medium {
+  font-family: "Archia", sans-serif;
+  font-weight: 500;           /* Medium */
+}
+.archia-bold {
+  font-family: "Archia", sans-serif;
+  font-weight: 700;           /* Bold */
+}
+.Silka-bold {
+  font-family: "Silka", sans-serif;
+  font-weight: 700;           /* Bold */
+}
+.silka-medium {
+  font-family: "Silka", sans-serif;
+  font-weight: 500;           /* Medium */
+}
+.silka-regular {
+  font-family: "Silka", sans-serif;
+  font-weight: 400;           /* Regular */
+}
+.silka-light {
+  font-family: "Silka", sans-serif;
+  font-weight: 300;           /* Light */
+}
 .text-hero-title {
   font-family: "Archia", sans-serif;
   font-weight: 300;           /* Light */

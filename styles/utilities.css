@@ -94,3 +94,224 @@
 .margin-responsive {
   margin: var(--space-12);
 }
+/* ===== base keyframes ===== */
+@keyframes fade-up { from {opacity:0; transform: translateY(12px)} to {opacity:1; transform: translateY(0)} }
+@keyframes fade-in { from {opacity:0} to {opacity:1} }
+
+/* ===== reveal on scroll (JS toggles .in) ===== */
+.reveal { opacity: 0; transform: translateY(12px) }                /* start state */
+.reveal.in { animation: fade-up .6s ease-out forwards }            /* play once */
+.reveal.in.delay-1 { animation-delay: .12s }
+.reveal.in.delay-2 { animation-delay: .24s }
+.reveal.in.delay-3 { animation-delay: .36s }
+
+/* ===== image hover zoom (no JS) ===== */
+.zoom-parent { overflow: hidden }
+.zoom-child { transition: transform .6s ease }
+.zoom-parent:hover .zoom-child,
+.group:hover .zoom-parent .zoom-child { transform: scale(1.06) }
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-down { opacity: 0 }
+.fade-down.in {
+  animation: fade-down .35s ease-out forwards;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(var(--scroll-reveal-translate, 0), 0, 0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal--from-left {
+  --scroll-reveal-translate: -48px;
+}
+
+.scroll-reveal--from-right {
+  --scroll-reveal-translate: 48px;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* a11y: disable motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .zoom-child, .scroll-reveal { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+/* ===== keyframes ===== */
+@keyframes fade-up { from {opacity:0; transform: translateY(12px)} to {opacity:1; transform: translateY(0)} }
+@keyframes fade-in { from {opacity:0} to {opacity:1} }
+@keyframes fade-down { from {opacity:0; transform: translateY(-8px)} to {opacity:1; transform: translateY(0)} }
+
+/* ===== scroll reveal ===== */
+.reveal { opacity: 0; transform: translateY(12px) }
+.reveal.in { animation: fade-up .6s ease-out forwards }
+.reveal.in.delay-1 { animation-delay: .12s }
+.reveal.in.delay-2 { animation-delay: .24s }
+.reveal.in.delay-3 { animation-delay: .36s }
+
+/* ===== fade down (dropdown etc.) ===== */
+.fade-down { opacity: 0; }
+.fade-down.in { animation: fade-down .35s ease-out forwards; }
+
+/* ===== hover zoom ===== */
+.zoom-parent { overflow: hidden; }
+.zoom-child { transition: transform .6s ease; }
+.zoom-parent:hover .zoom-child { transform: scale(1.06); }
+
+/* ===== reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .zoom-child {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+/* ===== keyframes ===== */
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Dropdown base state */
+.fade-down {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* Play animation only when parent hovered */
+.group:hover .fade-down {
+  animation: fade-down .35s ease-out forwards;
+  pointer-events: auto;
+}
+/* Mobile slide-down animation */
+@keyframes mobile-slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile slide-up animation */
+@keyframes mobile-slide-up {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Wrapper for animated height reveal */
+.mobile-dropdown {
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-6px);
+  transition: all 0.35s ease;
+}
+
+.mobile-dropdown.open {
+  opacity: 1;
+  max-height: 500px; /* plenty for 4 items */
+  transform: translateY(0);
+  animation: mobile-slide-down 0.35s ease;
+}
+
+.mobile-dropdown.close {
+  animation: mobile-slide-up 0.25s ease forwards;
+}
+  /* ================================
+   MOBILE CAMPUS DROPDOWN — SMOOTH
+================================== */
+
+@keyframes dropdown-open {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(1px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdown-close {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+
+.mobile-dropdown {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform-origin: top;
+  pointer-events: none;
+  transition:
+    max-height 0.45s cubic-bezier(.16,1,.3,1),
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(.16,1,.3,1);
+}
+
+.mobile-dropdown.open {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+  animation: dropdown-open 0.45s cubic-bezier(.16,1,.3,1);
+}
+
+.mobile-dropdown.close {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  animation: dropdown-close 0.35s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* ---------------------------
+   Utopia Utility Classes
+----------------------------*/
+
+/* Container paddings (match Figma layout) */
+.container-inner {
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  max-width: var(--container-lg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section spacings */
+.section {
+  padding-top: var(--section-space-lg);
+  padding-bottom: var(--section-space-lg);
+}
+
+/* Gaps (e.g., between cards or grid items) */
+.gap-xs { gap: var(--gap-xs); }
+.gap-sm { gap: var(--gap-sm); }
+.gap-md { gap: var(--gap-md); }
+.gap-lg { gap: var(--gap-lg); }
+.gap-xl { gap: var(--gap-xl); }
+
+/* Responsive alignment helpers */
+@media (max-width: 1024px) {
+  .container-inner {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .section {
+    padding-top: var(--section-space-md);
+    padding-bottom: var(--section-space-md);
+  }
+}

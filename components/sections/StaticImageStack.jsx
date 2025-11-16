@@ -42,7 +42,7 @@ export default function StaticImageStack({
       <div
         className="
           mx-auto max-w-[1600px]
-          px-[16px] sm:px-[32px] md:px-[64px] lg:px-[96px] xl:px-[112px]
+           
           py-[64px] md:py-[64px]
         "
       >
@@ -54,12 +54,12 @@ export default function StaticImageStack({
           "
         >
           {items.map((it) => (
-            <figure key={it.id} className="relative w-full aspect-[4/3] ">
+            <figure key={it.id} className="relative w-full aspect-[4/3] overflow-hidden zoom-parent">
               <Image
   src={it.image.src}
   alt={it.image.alt ?? ""}
   fill
-  className="object-cover z-0"   // ✅ Image behind
+  className="object-cover z-0 zoom-child"   //   Image behind
   sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw"
   priority={false}
 />
@@ -68,7 +68,7 @@ export default function StaticImageStack({
   <figcaption
     style={{ transform: "translate(-50%, 50%)" }}
     className={`
-      absolute left-1/2 bottom-0 z-10    // ✅ Bring badge in front
+      absolute left-1/2 bottom-0 z-10    //   Bring badge in front
       inline-flex items-center justify-center text-white
       ${TONE_BG[it.badge.tone]}
       font-archia medium uppercase tracking-[0.16em] lh-tight

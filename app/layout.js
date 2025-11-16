@@ -6,6 +6,7 @@ import "@/styles/utilities.css";
 import "@/styles/type-scale.css";
 import "@/styles/fonts.css";
 import "@/styles/typography-helpers.css";
+import Header from "@/components/layout/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>

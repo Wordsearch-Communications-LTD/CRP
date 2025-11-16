@@ -28,7 +28,7 @@ export default function BannerInfostats3Stack({
       <div
         className="
           mx-auto max-w-[1600px]
-          px-[16px] sm:px-[32px] md:px-[64px] lg:px-[96px] xl:px-[112px]
+          px-[16px] sm:px-[32px] md:px-[64px] lg:px-[96px] xl:px-[10vw]
           py-[64px] md:py-[96px] lg:py-[120px]
         "
       >
