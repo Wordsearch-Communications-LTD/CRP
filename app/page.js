@@ -1,4 +1,6 @@
- 
+"use client";
+
+import dynamic from "next/dynamic";
 import SectionWhyChoose from "@/components/sections/SectionWhyChoose";
 import HeroMedia from "../components/hero/HeroMedia";
 import SectionNatureHero from "@/components/sections/SectionNatureHero";
@@ -8,8 +10,12 @@ import TwoColumnContent from "@/components/sections/TwoColumnContent";
 import FlexStatementBanner from "@/components/sections/FlexStatementBanner";
 import StatementHero from "@/components/sections/StatementHero";
 import BannerInfographic4Stack from "@/components/sections/BannerInfographic4Stack";
-import MultiCards4Stack from "@/components/sections/MultiCards4Stack";
 import EventsSlider from "@/components/sections/EventsSlider";
+
+const MultiCards4Stack = dynamic(
+  () => import("@/components/sections/MultiCards4Stack"),
+  { ssr: false }
+);
 import SliderEvents from "@/components/sections/EventsSlider";
 import BannerInfostats3Stack from "@/components/sections/BannerInfostats3Stack";
 import CompCtaBanner from "@/components/sections/CompCtaBanner";
