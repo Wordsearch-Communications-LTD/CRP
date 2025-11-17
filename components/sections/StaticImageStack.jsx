@@ -54,7 +54,7 @@ export default function StaticImageStack({
           "
         >
           {items.map((it) => (
-            <figure key={it.id} className="relative w-full aspect-[4/3] overflow-hidden zoom-parent">
+            <figure key={it.id} className="relative w-full aspect-[4/3]   ">
               <Image
   src={it.image.src}
   alt={it.image.alt ?? ""}
